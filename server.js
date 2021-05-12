@@ -3,7 +3,6 @@ const path = require("path");
 const logger = require("morgan");
 const cors = require("cors");
 const bodyParser = require("body-parser");
-const db = require("./models");
 const routes = require("./controllers/bookController");
 
 const app = express();
@@ -27,4 +26,8 @@ if (process.env.NODE_ENV === "production") {
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/dist", "index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server now listening at http://localhost:${PORT}`);
 });
