@@ -48,7 +48,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 #mainNav {
   padding: 25px;
   background-color: #082038;
