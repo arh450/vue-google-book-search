@@ -13,4 +13,16 @@ export default {
   },
 };
 </script>
-<style></style>
+<style>
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  overflow-x: hidden;
+  background-color: hsl(240, 5%, 71%);
+  font-family: "Roboto", sans-serif;
+}
+</style>

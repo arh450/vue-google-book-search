@@ -1,11 +1,15 @@
 <template>
   <div>
-    <h1>This is an about page</h1>
+    <Header />
   </div>
 </template>
 
 <script>
+import Header from "@/components/Header.vue";
 export default {
   name: "Saved",
+  components: {
+    Header,
+  },
 };
 </script>

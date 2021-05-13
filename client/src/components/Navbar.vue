@@ -1,15 +1,18 @@
 <template>
-  <div id="navbar">
-    <b-navbar toggleable="lg" type="dark" variant="info">
-      <b-navbar-brand href="#">NavBar</b-navbar-brand>
+  <div>
+    <b-navbar id="mainNav" toggleable="lg" type="dark" variant="dark">
+      <b-navbar-brand href="/">
+        <h4>Google Books</h4>
+      </b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-      <b-collapse id="nav-collapse" is-nav>
-        <b-navbar-nav>
+      <b-collapse is-nav>
+        <b-navbar-nav class="mr-auto">
           <b-nav-item
             active-class="active"
             class="nav-link"
+            style="font-size: 20px"
             v-for="routes in links"
             :key="routes.id"
             :to="routes.path"
@@ -44,3 +47,10 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+#mainNav {
+  padding: 25px;
+  background-color: #082038;
+}
+</style>
