@@ -19,12 +19,19 @@
         </b-jumbotron>
       </b-col>
     </b-row>
+
+    <Results />
   </div>
 </template>
 
 <script>
+import Results from "@/components/Results.vue";
+
 export default {
   name: "SearchComponent",
+  components: {
+    Results,
+  },
 };
 </script>
 
