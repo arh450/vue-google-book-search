@@ -1,6 +1,7 @@
 <template>
   <div id="helloWorld">
     <h1>HelloWorld</h1>
+    <b-button>Button</b-button>
   </div>
 </template>
 
