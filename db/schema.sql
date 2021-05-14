@@ -7,7 +7,7 @@ CREATE TABLE books (
     id INT AUTO_INCREMENT,
     title VARCHAR(255),
     authors VARCHAR(255),
-    descript VARCHAR(255),
+    descript BLOB,
     image VARCHAR(255),
     link VARCHAR(255),
     PRIMARY KEY (id)

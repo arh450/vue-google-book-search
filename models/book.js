@@ -18,7 +18,8 @@ const book = {
 
   insert: (columns, values) => {
     return new Promise((resolve, reject) => {
-      insert("books", columns, values)
+      orm
+        .insert("books", columns, values)
         .then((result) => {
           resolve(result);
         })

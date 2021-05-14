@@ -39,6 +39,13 @@
                 <b-button
                   style="border: none; margin-left: 5px;"
                   variant="success"
+                  v-bind:id="data.id"
+                  @click="postNewBook"
+                  v-b-popover="{
+                    title: 'Book Saved!',
+                    placement: 'right',
+                    trigger: 'click',
+                  }"
                   >Save</b-button
                 >
               </b-col>
@@ -51,12 +58,36 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Results",
   props: ["bookData"],
   data: function() {
     return {};
   },
-  methods: {},
+  methods: {
+    postNewBook: function(event) {
+      event.preventDefault();
+
+      let book = this.bookData.filter((data) => data.id === event.target.id);
+
+      book = book[0].volumeInfo;
+
+      const bookObject = {
+        title: book.title,
+        authors: book.authors[0],
+        description: book.description,
+        image: book.imageLinks.thumbnail,
+        link: book.infoLink,
+      };
+
+      axios
+        .post("/api/saveBook", bookObject)
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((err) => console.log(err));
+    },
+  },
 };
 </script>

@@ -78,7 +78,6 @@ export default {
               this.searchInput = "";
             } else {
               this.bookData = response.data.items;
-              console.log(this.bookData);
             }
           })
           .catch((err) => {
