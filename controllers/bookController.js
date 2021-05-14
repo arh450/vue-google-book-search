@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const book = require("../models/book");
 
-router.get("/api/getAllBooks", (req, res) => {
+router.get("/api/getSavedBooks", (req, res) => {
   book
     .selectAll()
     .then((results) => {
@@ -26,13 +26,29 @@ router.post("/api/saveBook", (req, res) => {
       [
         req.body.title,
         req.body.authors,
-        req.body.descript,
+        req.body.description,
         req.body.image,
         req.body.link,
       ]
     )
     .then((result) => {
       console.log(`Book saved successfully`);
+      res.json(result);
+    })
+    .catch((err) => {
+      if (err) {
+        throw err;
+      }
+    });
+});
+
+router.delete("/api/removeBook/:id", (req, res) => {
+  const id = req.params.id;
+
+  book
+    .delete(id)
+    .then((result) => {
+      console.log(`Deleted book successfully`);
       res.json(result);
     })
     .catch((err) => {
