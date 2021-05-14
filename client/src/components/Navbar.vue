@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-navbar id="mainNav" toggleable="lg" type="dark" variant="dark">
+    <b-navbar id="mainNav" toggleable="lg" type="dark">
       <b-navbar-brand href="/">
         <h4>Google Books</h4>
       </b-navbar-brand>
@@ -50,7 +50,7 @@ export default {
 
 <style>
 #mainNav {
-  padding: 25px;
+  padding: 15px;
   background-color: #082038;
 }
 </style>

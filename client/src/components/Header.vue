@@ -5,7 +5,7 @@
         <b-row class="mx-auto">
           <b-col
             md="6"
-            class="mx-auto p-2"
+            class="mx-auto p-3"
             style="background-color: rgba(128, 136, 144, .9); border-radius: 5px;"
           >
             <h1>Google Books Search</h1>
