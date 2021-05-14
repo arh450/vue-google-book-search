@@ -30,6 +30,17 @@
                 <b-card-text class="overflow-auto" style="max-height: 200px;">{{
                   data.volumeInfo.description
                 }}</b-card-text>
+                <b-button
+                  style="background-color: #082038; border: none;"
+                  v-bind:href="data.volumeInfo.infoLink"
+                  target="_blank"
+                  >View</b-button
+                >
+                <b-button
+                  style="border: none; margin-left: 5px;"
+                  variant="success"
+                  >Save</b-button
+                >
               </b-col>
             </b-row>
           </b-card>
