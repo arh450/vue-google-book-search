@@ -8,9 +8,16 @@
               <h2 class="mb-2">Book Search</h2>
               <b-form>
                 <b-form-group>
-                  <b-form-input placeholder="Search for Book" />
+                  <b-form-input
+                    placeholder="Search for Book"
+                    v-model="searchInput"
+                  />
                 </b-form-group>
-                <b-button class="float-right" style="background-color: #808890">
+                <b-button
+                  class="float-right"
+                  style="background-color: #808890"
+                  @click="handleSearch"
+                >
                   Search
                 </b-button>
               </b-form>
@@ -20,17 +27,69 @@
       </b-col>
     </b-row>
 
-    <Results />
+    <Results v-bind:bookData="bookData" />
+    <b-modal ref="alert-modal" hide-header-close>
+      <template v-slot:modal-header>
+        <h5 class="mx-auto" style="font-size: 24px">ERROR!</h5>
+      </template>
+      <p class="text-center" style="font-size: 18px">
+        {{ modalText }}
+      </p>
+      <template v-slot:modal-footer>
+        <b-button type="button" class="btn mx-auto" @click="hideModal"
+          >Close</b-button
+        >
+      </template>
+    </b-modal>
   </div>
 </template>
 
 <script>
 import Results from "@/components/Results.vue";
-
+import axios from "axios";
 export default {
   name: "SearchComponent",
   components: {
     Results,
+  },
+  data: function() {
+    return {
+      searchInput: "",
+      bookData: [],
+      title: "",
+      modalText: "",
+    };
+  },
+  methods: {
+    handleSearch: function(event) {
+      event.preventDefault();
+      if (!this.searchInput) {
+        this.modalText = "Please enter an input!";
+        this.$refs["alert-modal"].show();
+      } else {
+        axios
+          .get(
+            `https://www.googleapis.com/books/v1/volumes?q=${this.searchInput}`
+          )
+          .then((response) => {
+            if (response.data.totalItems == 0) {
+              this.modalText = "No results, please try a different search!";
+              this.$refs["alert-modal"].show();
+              this.searchInput = "";
+            } else {
+              this.bookData = response.data.items;
+              console.log(this.bookData);
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    },
+
+    hideModal: function() {
+      this.$refs["alert-modal"].hide();
+    },
   },
 };
 </script>
