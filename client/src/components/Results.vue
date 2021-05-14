@@ -2,7 +2,7 @@
   <div>
     <b-row class="mx-auto">
       <b-col md="10" class="mt-3 mx-auto">
-        <b-jumbotron style="background-color: #283850">
+        <b-jumbotron id="resultsJumbo">
           <h1 v-if="!bookData.length" class="text-center text-white">
             No Results to Display
           </h1>
@@ -91,3 +91,11 @@ export default {
   },
 };
 </script>
+
+<style>
+#resultsJumbo {
+  background-color: #283850;
+  padding: 4rem 2rem;
+  border-radius: 0.3rem;
+}
+</style>

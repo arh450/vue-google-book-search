@@ -19,9 +19,4 @@ export default {
   padding: 0;
   margin: 0;
 }
-
-body {
-  overflow-x: hidden;
-  background-color: hsl(240, 5%, 71%);
-}
 </style>

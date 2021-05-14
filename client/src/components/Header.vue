@@ -23,12 +23,14 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 #jumbo {
   background-image: url(https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2306&q=80);
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  padding: 4rem 2rem;
+  border-radius: 0.3rem;
 }
 </style>

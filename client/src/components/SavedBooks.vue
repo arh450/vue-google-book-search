@@ -2,7 +2,7 @@
   <div>
     <b-row class="mx-auto mt-2">
       <b-col md="10" class="mt-3 mx-auto">
-        <b-jumbotron style="background-color: #283850">
+        <b-jumbotron id="resultsJumbo">
           <h1 v-if="!savedBooks.length" class="text-center text-white">
             No Saved Books to Display
           </h1>

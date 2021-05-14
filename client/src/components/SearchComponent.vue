@@ -2,7 +2,7 @@
   <div>
     <b-row class="mx-auto mt-2">
       <b-col md="10" class="mt-3 mx-auto text-white">
-        <b-jumbotron style="background-color: #485870">
+        <b-jumbotron id="searchJumbo">
           <b-row class="mx-auto">
             <b-col md="12">
               <h2 class="mb-2">Book Search</h2>
@@ -13,11 +13,7 @@
                     v-model="searchInput"
                   />
                 </b-form-group>
-                <b-button
-                  class="float-right"
-                  style="background-color: #808890"
-                  @click="handleSearch"
-                >
+                <b-button id="searchBtn" @click="handleSearch">
                   Search
                 </b-button>
               </b-form>
@@ -93,4 +89,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+#searchJumbo {
+  background-color: #485870;
+  padding: 4rem 2rem;
+  border-radius: 0.3rem;
+}
+
+#searchBtn {
+  float: right;
+  background-color: #808890;
+  margin-top: 1rem;
+}
+</style>

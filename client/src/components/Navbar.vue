@@ -10,9 +10,7 @@
       <b-collapse is-nav>
         <b-navbar-nav class="mr-auto">
           <b-nav-item
-            active-class="active"
             class="nav-link"
-            style="font-size: 20px"
             v-for="routes in links"
             :key="routes.id"
             :to="routes.path"
@@ -52,5 +50,9 @@ export default {
 #mainNav {
   padding: 15px;
   background-color: #082038;
+}
+
+.nav-link {
+  font-size: 20px;
 }
 </style>
